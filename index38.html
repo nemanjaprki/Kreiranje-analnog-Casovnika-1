@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Casovnik</title>
+    <style>
+        #my-canvas { 
+            margin-left: 400px;
+            border: #cacaca 1px solid; 
+        }
+    </style>
+</head>
+<body>
+    <canvas id="my-canvas" width="400" height="300">
+        Your web browser does not support canvas element.
+    </canvas>
+    <script>
+        window.onload = draw;
+        function draw() {
+            let myCanvas = document.getElementById("my-canvas");
+            if (myCanvas.getContext) {
+                let ctx = myCanvas.getContext('2d');
+                update(ctx);
+            } else {
+                alert("Canvas is not supported.");
+            }
+        }
+        let angle = 0;
+        function update(ctx) {  
+
+            ctx.save();
+            ctx.clearRect(0, 0, 400, 300); 
+              
+            ctx.beginPath();
+            ctx.fillStyle = '#62625B';
+            ctx.rect(60, 50, 280, 200)
+             ctx.fill();   
+             ctx.closePath();
+            ctx.stroke(); 
+
+            ctx.beginPath(); 
+            ctx.fillStyle =  'rgba(58, 58, 54, 0.9)'; 
+            ctx.strokeStyle = '#C3C889';
+            ctx.arc(200, 150, 120, 0, 2 * Math.PI);  
+            ctx.fill();
+            ctx.closePath();
+            ctx.stroke();   
+
+            ctx.translate(200, 150);
+            ctx.rotate((Math.PI / 450000) * angle);
+            ctx.translate(-200, -150);
+
+            ctx.beginPath();
+            ctx.moveTo(200, 150);
+            ctx.lineTo(180, 100);
+            ctx.closePath();
+            ctx.stroke();     
+
+
+
+            ctx.translate(200, 150);
+            ctx.rotate((Math.PI / 170000) * angle);
+            ctx.translate(-200, -150);
+            
+            ctx.beginPath();
+            ctx.moveTo(200, 150);
+            ctx.lineTo(200, 80);
+            ctx.closePath();
+            ctx.stroke();   
+ 
+           
+            ctx.translate(200, 150);
+            ctx.rotate((Math.PI / 1800) * angle);
+            ctx.translate(-200, -150);
+
+            ctx.beginPath(); 
+            ctx.moveTo(200, 150);
+            ctx.lineTo(180, 75); 
+            ctx.strokeStyle = '#F06270';
+            ctx.closePath();
+            ctx.stroke();     
+            
+            ctx.restore();
+            angle++;
+            requestId = requestAnimationFrame(function () {
+                update(ctx);
+            });  
+                  ctx.beginPath();
+                ctx.font = 'bold 26px sans-serif';
+                ctx.fillStyle = "#B5BA7E";
+                ctx.fillText('12', 183, 70); 
+                ctx.font = 'bold 26px sans-serif';
+                ctx.fillStyle = "#B5BA7E";
+                ctx.fillText('6', 190, 250); 
+                ctx.font = 'bold 26px sans-serif';
+                ctx.fillStyle = "#B5BA7E";
+                ctx.fillText('3', 290, 152);   
+                ctx.font = 'bold 26px sans-serif';
+                ctx.fillStyle = "#B5BA7E";
+                ctx.fillText('9', 95, 152); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 122, 106); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 148, 77); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 238, 77); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 270, 106); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 122, 183); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 147, 220); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 238, 220); 
+                ctx.font = 'bold 35px sans-serif';
+                ctx.fillStyle = "#7D7F63";
+                ctx.fillText('.', 270, 183);
+                ctx.stroke();    
+        
+           
+            
+        }
+    </script>
+</body>
+</html>
